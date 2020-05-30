@@ -1,0 +1,5 @@
+
+curl https://auth.us-central1.gcp.commercetools.com/oauth/token \
+     --basic --user "dAy6Ml78zM_cn6EuBdnDGN6_:J5FsYvggk96lVHRC4LeH8hDmmlFLjiYg" \
+     -X POST \
+     -d "grant_type=client_credentials&scope=manage_project:samuels-intro-task"

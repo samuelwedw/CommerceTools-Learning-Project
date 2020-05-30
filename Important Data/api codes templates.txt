@@ -1,0 +1,87 @@
+----------------JAVA
+
+sunrise.ctp.client {
+  # The project key for your commercetools platform project.
+  projectKey = "samuels-intro-task"
+
+  # The client ID of your commercetools platform project.
+  clientId = "dAy6Ml78zM_cn6EuBdnDGN6_"
+
+  # The client secret of your commercetools platform project.
+  clientSecret = "J5FsYvggk96lVHRC4LeH8hDmmlFLjiYg"
+
+  # The Auth endpoint of the commercetools platform.
+  authUrl = "https://auth.us-central1.gcp.commercetools.com"
+
+  # The API endpoint of the commercetools platform.
+  apiUrl = "https://api.us-central1.gcp.commercetools.com"
+}
+
+
+----------------Java properties
+
+
+ctp.projectKey=samuels-intro-task
+ctp.clientId=dAy6Ml78zM_cn6EuBdnDGN6_
+ctp.clientSecret=J5FsYvggk96lVHRC4LeH8hDmmlFLjiYg
+ctp.authUrl=https://auth.us-central1.gcp.commercetools.com
+ctp.apiUrl=https://api.us-central1.gcp.commercetools.com
+ctp.scopes=manage_project:samuels-intro-task
+
+
+------------------PHP
+
+$config = \Commercetools\Core\Config::fromArray([
+    'project' => 'samuels-intro-task',
+    'client_id' => 'dAy6Ml78zM_cn6EuBdnDGN6_',
+    'client_secret' => 'J5FsYvggk96lVHRC4LeH8hDmmlFLjiYg',
+    'oauth_url' => 'https://auth.us-central1.gcp.commercetools.com',
+    'api_url' => 'https://api.us-central1.gcp.commercetools.com',
+    'scope' => 'manage_project:samuels-intro-task'
+]);
+
+------------------JavaScript (Node.js)
+
+const { createClient } = require('@commercetools/sdk-client')
+  const { createAuthMiddlewareForClientCredentialsFlow } = require('@commercetools/sdk-middleware-auth')
+  const { createHttpMiddleware } = require('@commercetools/sdk-middleware-http')
+  const fetch = require('node-fetch')
+
+  const projectKey = 'samuels-intro-task'
+
+  const authMiddleware = createAuthMiddlewareForClientCredentialsFlow({
+    host: 'https://auth.us-central1.gcp.commercetools.com',
+    projectKey,
+    credentials: {
+      clientId: 'dAy6Ml78zM_cn6EuBdnDGN6_',
+      clientSecret: 'J5FsYvggk96lVHRC4LeH8hDmmlFLjiYg',
+    },
+    scopes: ['manage_project:samuels-intro-task'],
+    fetch,
+  })
+  const httpMiddleware = createHttpMiddleware({
+    host: 'https://api.us-central1.gcp.commercetools.com',
+    fetch,
+  })
+  const client = createClient({
+    middlewares: [authMiddleware, httpMiddleware],
+  })
+  
+
+----------------windows envoriment variables
+
+export CTP_PROJECT_KEY="samuels-intro-task"
+export CTP_CLIENT_SECRET="J5FsYvggk96lVHRC4LeH8hDmmlFLjiYg"
+export CTP_CLIENT_ID="dAy6Ml78zM_cn6EuBdnDGN6_"
+export CTP_AUTH_URL="https://auth.us-central1.gcp.commercetools.com"
+export CTP_API_URL="https://api.us-central1.gcp.commercetools.com"
+export CTP_SCOPES="manage_project:samuels-intro-task"
+
+
+
+
+
+
+-----------------Help gettign a hello world app setup with the following
+https://github.com/sphereio/sphere-hello-api
+
