@@ -9,7 +9,7 @@
 
 
 #Note to interviewers- Some things in this project are and most likely may be unessasary or out of the scope of the original intended interview. That is primarly as im playing/toying and getting my feet wet with the API and program offered. 
-#	Some parts of this project may not make sense, or serve as place holder. That is okay because it was likley an attempt, or action i tried ot attempted to learn or grow from. Stay safe and i hope you guys are safe with the current times!
+#	Some parts of this project may not make sense, or serve as place holder. That is okay because it was likley an attempt, or action i tried or attempted to learn or grow from. Stay safe and i hope you guys are safe with the current times!
 
 
 
