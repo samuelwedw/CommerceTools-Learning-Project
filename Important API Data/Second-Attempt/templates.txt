@@ -1,0 +1,108 @@
+Curl
+------------
+curl https://auth.europe-west1.gcp.commercetools.com/oauth/token \
+     --basic --user "d_atPvy36ZWE6QtyaNdK707f:a2l0J_EsF7TltUdzZtGLu1q95ykKRux-" \
+     -X POST \
+     -d "grant_type=client_credentials&scope=manage_project:sammies-starting-project manage_api_clients:sammies-starting-project view_api_clients:sammies-starting-project"
+	 
+Java Properties
+
+ctp.projectKey=sammies-starting-project
+ctp.clientId=d_atPvy36ZWE6QtyaNdK707f
+ctp.clientSecret=a2l0J_EsF7TltUdzZtGLu1q95ykKRux-
+ctp.authUrl=https://auth.europe-west1.gcp.commercetools.com
+ctp.apiUrl=https://api.europe-west1.gcp.commercetools.com
+ctp.scopes=manage_project:sammies-starting-project manage_api_clients:sammies-starting-project view_api_clients:sammies-starting-project
+
+sunrise java
+
+sunrise.ctp.client {
+  # The project key for your commercetools platform project.
+  projectKey = "sammies-starting-project"
+
+  # The client ID of your commercetools platform project.
+  clientId = "d_atPvy36ZWE6QtyaNdK707f"
+
+  # The client secret of your commercetools platform project.
+  clientSecret = "a2l0J_EsF7TltUdzZtGLu1q95ykKRux-"
+
+  # The Auth endpoint of the commercetools platform.
+  authUrl = "https://auth.europe-west1.gcp.commercetools.com"
+
+  # The API endpoint of the commercetools platform.
+  apiUrl = "https://api.europe-west1.gcp.commercetools.com"
+}
+
+javascript Node.js
+
+const { createClient } = require('@commercetools/sdk-client')
+  const { createAuthMiddlewareForClientCredentialsFlow } = require('@commercetools/sdk-middleware-auth')
+  const { createHttpMiddleware } = require('@commercetools/sdk-middleware-http')
+  const fetch = require('node-fetch')
+
+  const projectKey = 'sammies-starting-project'
+
+  const authMiddleware = createAuthMiddlewareForClientCredentialsFlow({
+    host: 'https://auth.europe-west1.gcp.commercetools.com',
+    projectKey,
+    credentials: {
+      clientId: 'd_atPvy36ZWE6QtyaNdK707f',
+      clientSecret: 'a2l0J_EsF7TltUdzZtGLu1q95ykKRux-',
+    },
+    scopes: ['manage_project:sammies-starting-project manage_api_clients:sammies-starting-project view_api_clients:sammies-starting-project'],
+    fetch,
+  })
+  const httpMiddleware = createHttpMiddleware({
+    host: 'https://api.europe-west1.gcp.commercetools.com',
+    fetch,
+  })
+  const client = createClient({
+    middlewares: [authMiddleware, httpMiddleware],
+  })
+  
+  
+  javascript es6
+  
+  import { createClient } from '@commercetools/sdk-client'
+  import { createAuthMiddlewareForClientCredentialsFlow } from '@commercetools/sdk-middleware-auth'
+  import { createHttpMiddleware } from '@commercetools/sdk-middleware-http'
+
+  const projectKey = 'sammies-starting-project'
+
+  const authMiddleware = createAuthMiddlewareForClientCredentialsFlow({
+    host: 'https://auth.europe-west1.gcp.commercetools.com',
+    projectKey,
+    credentials: {
+      clientId: 'd_atPvy36ZWE6QtyaNdK707f',
+      clientSecret: 'a2l0J_EsF7TltUdzZtGLu1q95ykKRux-',
+    },
+    scopes: ['manage_project:sammies-starting-project manage_api_clients:sammies-starting-project view_api_clients:sammies-starting-project'],
+  })
+  const httpMiddleware = createHttpMiddleware({
+    host: 'https://api.europe-west1.gcp.commercetools.com',
+  })
+  const client = createClient({
+    middlewares: [authMiddleware, httpMiddleware],
+  })
+  
+  
+  PHP
+  
+  $config = \Commercetools\Core\Config::fromArray([
+    'project' => 'sammies-starting-project',
+    'client_id' => 'd_atPvy36ZWE6QtyaNdK707f',
+    'client_secret' => 'a2l0J_EsF7TltUdzZtGLu1q95ykKRux-',
+    'oauth_url' => 'https://auth.europe-west1.gcp.commercetools.com',
+    'api_url' => 'https://api.europe-west1.gcp.commercetools.com',
+    'scope' => 'manage_project:sammies-starting-project manage_api_clients:sammies-starting-project view_api_clients:sammies-starting-project'
+]);
+  
+  
+  enviorment variables
+  
+  export CTP_PROJECT_KEY="sammies-starting-project"
+export CTP_CLIENT_SECRET="a2l0J_EsF7TltUdzZtGLu1q95ykKRux-"
+export CTP_CLIENT_ID="d_atPvy36ZWE6QtyaNdK707f"
+export CTP_AUTH_URL="https://auth.europe-west1.gcp.commercetools.com"
+export CTP_API_URL="https://api.europe-west1.gcp.commercetools.com"
+export CTP_SCOPES="manage_project:sammies-starting-project manage_api_clients:sammies-starting-project view_api_clients:sammies-starting-project"
