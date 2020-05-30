@@ -11,6 +11,7 @@ def login(client_id, client_secret, project_key):
     auth = (client_id, client_secret)
     r = requests.post(url, data=body, headers=headers, auth=auth)
     if r.status_code is 200:
+        print("The Gridsurfer has landed in CommerceTools")
         return r.json()
     else:
         raise Exception("Failed to get an access token. Are you sure you have added them to config.py?")
