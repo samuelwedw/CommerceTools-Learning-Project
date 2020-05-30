@@ -1,3 +1,3 @@
-PROJECT_KEY = "my-project"
-CLIENT_ID = "CLIENT_ID"
-CLIENT_SECRET = "CLIENT_SECRET"
+PROJECT_KEY = "sammies-starting-project"
+CLIENT_ID = "d_atPvy36ZWE6QtyaNdK707f"
+CLIENT_SECRET = "a2l0J_EsF7TltUdzZtGLu1q95ykKRux-"
