@@ -3,12 +3,12 @@
 # @Author ~ Sammie.E -Program hello-api.py
 #
 # Description- "A program designed to authenticate and work with the commercetools API system"
-# Version- 5/30/2020 7PM
+# Version- 5/30/2020 7.4PM
 #
 # TODO LIST-----------------------------------------------------
-# [] complete a succesful code 200 Communication
-# [] review the next steps
-# [] label part two
+# [X] complete a succesful code 200 Communication
+# [X] review the next steps
+# [X] Import Data
 #
 # Notes To Self -----------------------------------------------------/
 # - API code 200 = Succesful communication
