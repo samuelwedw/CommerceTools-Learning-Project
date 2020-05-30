@@ -19,3 +19,7 @@ Add your project key, OAuth client ID and client secret to `config.py`.
 $ ./hello-api
 ```
 
+
+
+## Scripts completed! 
+# Should not need to be redone if so contact @Author Sammie.e for more

@@ -1,10 +1,50 @@
 #! /usr/bin/env python3
 
+# @Author ~ Sammie.E -Program hello-api.py
+#
+# Description- "A program designed to authenticate and work with the commercetools API system"
+# Version- 5/30/2020 7PM
+#
+# TODO LIST-----------------------------------------------------
+# [] complete a succesful code 200 Communication
+# [] review the next steps
+# [] label part two
+#
+# Notes To Self -----------------------------------------------------/
+# - API code 200 = Succesful communication
+#
+#
+
+#####################################################################-
+#   import section
+#####################################################################
+
 import base64
 import requests
 import config
 
+
+#####################################################################
+#   Var section
+#####################################################################
+
+# - Options
+# [True = Debugging On] [False = Debugging Off]
+Debug = True
+
+
+#####################################################################
+#   Method/Class section
+#####################################################################
+
+
 def login(client_id, client_secret, project_key):
+    '''
+    Initial login script designed to make the call and use the config file to communicate and test to make sure everything is working
+
+    @paramaters client_id, client_secret, project_key
+    '''
+
     headers = { 'Content-Type' : 'application/x-www-form-urlencoded' }
     body = "grant_type=client_credentials&scope=manage_project:%s" % project_key
     url = "https://auth.sphere.io/oauth/token"
@@ -17,6 +57,12 @@ def login(client_id, client_secret, project_key):
         raise Exception("Failed to get an access token. Are you sure you have added them to config.py?")
 
 def list_products(auth, project_key):
+    '''
+    A method designed to seek and display the products listed in the current project
+
+    @paramaters auth, project_key
+    '''
+
     headers = { "Authorization" : "Bearer %s" % auth["access_token"] }
     url = "https://api.sphere.io/%s/product-projections" % project_key
     r = requests.get(url, headers=headers)
@@ -24,6 +70,62 @@ def list_products(auth, project_key):
     for i in products["results"]:
         print(i["name"])
 
+
+
+#####################################################################
+#   Main Method section
+#####################################################################
+
+#-Debug Script
+if (Debug == True):
+        print("Debugging mode activated")
+        print("Welcome to hello-api.py")
+
+#make the initial api calls to check connection then store the api system in a var
 auth = login(config.CLIENT_ID, config.CLIENT_SECRET, config.PROJECT_KEY)
+
+#display the current products in the project
 list_products(auth, config.PROJECT_KEY)
 
+
+#-Debug Script
+if (Debug == True):
+        print("program has succesfully completed through a full run")
+
+        #simple hold command used if the program is opend thru the file explorer
+        input("Press Enter to continue...")
+
+
+#####################################################################
+#   Junk code- section
+#####################################################################
+
+"""
+
+
+
+
+
+
+
+"""
+
+
+"""
+Debug Template---------------------
+
+
+#class wide debug config
+# - Options
+# [True = Debugging On] [False = Debugging Off]
+Debug = False
+
+
+#-Debug Script
+if (self.Debug == True):
+    pass
+    
+    
+    
+
+"""
